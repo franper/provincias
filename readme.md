@@ -1,27 +1,55 @@
-## Laravel PHP Framework
+## Primero
+Para que la aplicación funcione se debe tener instalado [composer](http://librosweb.es/tutorial/como-instalar-composer-globalmente/).
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Segundo
+Se debe descargar el proyecto, puede ser con git clone o descargar como .zip
+y moverlo al servidor que usen (MAMP,WAMP etc..).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Tercero
+Se debe abrir la consola y moverse hasta el directorio del proyecto 
+y ejecutar : 
 
-## Official Documentation
+		composer install
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+## Cuarto
+- Crear la base de datos, se puede usar el propio mysql, en mi caso la llamé 'maps'
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+- Crear y configurar el archivo .env, en la raiz del proyecto aparecerá un archivo llamado '.env.example' se puede copiar el contenido y pegar en el archivo .env que han creado y modificar los parametros
 
-## Security Vulnerabilities
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=maps 		//nombre de la base de datos
+DB_USERNAME=root		//usuario 
+DB_PASSWORD=root  		//contraseña, sino se tiene se puede dejar vacía
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-### License
+## Quinto
+Desde la consola ejecutar el comando
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+		php artisan key:generate
+
+esto sirve para que se genere una clave que pondrá en el archivo .env
+
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=ClaveAleatoria    //normalmente se genera sola despues de ejercutar php artisan key:generate.
+
+## Sexto
+Abrir otra ventana de la consola y moverse al directorio del proyecto y ejecutar
+
+		php artisan serve   
+
+laravel nos crea un host y nos permitirá conectarnos al puerto 8000
+'http://localhost:8000/' donde ya podemos visualizar la aplicación
+pero antes se debe cargar las tablas y los registros a la base de datos, para ello hay que ejecutar los siguientes comandos desde la consola.
+
+		php artisan migrate:install
+		php artisan migrate
+		php artisan db:seed
+
+Con esto abremos conseguido cargar todos los datos a la base de datos, claro está que antes de hacer esto se debe iniciar Apache y Mysql.
+
+Y listo..
+
