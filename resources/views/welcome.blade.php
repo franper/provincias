@@ -1,27 +1,27 @@
 @extends('template')
 
 @section('content')
-<div class="col-md-6 col-md-offset-3">
-    <form name="test-form" method="POST" action="#">
+    <div class="col-md-4 col-md-offset-4">
+        <form name="test-form" method="POST" action="#">
 
-        <div class="form-group"><br><br>
-            <h3 class="control-label">Introduce una provincia</h3>
-            <table id="tabla">
-            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-            <tr>
-                <td>
-                <input type="text" name="text" id="text" autocomplete="off" oninput="enviarDatos()">
-                </td>
-                <td><input type="button" id="btn" value="Ver mapa"></td>
-            </tr>
-            <tr id="resultado"></tr>
-            </table>
+            <div class="form-group"><br><br>
+                <h3 class="control-label">Introduce una provincia</h3>
+                <table id="tabla">
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                <tr>
+                    <td>
+                    <input type="text" name="text" id="text" autocomplete="off" oninput="enviarDatos()">
+                    </td>
+                    <td><input type="button" id="btn" value="Ver mapa"></td>
+                </tr>
+                <tr id="resultado"></tr>
+                </table>
+                
+            </div>
             
-        </div>
-        
-    </form>
-</div>
-<div id="map" class="col-md-6 col-md-offset-3"></div>
+        </form>
+    </div>
+    <div id="map" class="col-md-4 col-md-offset-3"></div>
 @endsection
 
 @section('scripts')
